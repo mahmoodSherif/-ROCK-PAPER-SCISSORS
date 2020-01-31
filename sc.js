@@ -3,60 +3,53 @@ function comuterPlay(){
     let choise = Math.floor(Math.random() *3);
     return choise;
 }
-function getPlayerChoise(){
-    let choise;
-    do{
-        choise = prompt("Rock, Paper or Scissors ?? ");
-        choise = choise.toLocaleLowerCase();
-    }while(arr.indexOf(choise) == -1);
-    return arr.indexOf(choise);
-}
 // retrun 1 for plater , 0 for comuter
-function calc(player , comuter){
+function calc(player , computer){
+    if(computer == player){
+        return 2;
+    }
     if(player == 0){
-        if(comuter == 1){
+        if(computer == 1){
             return 1;
         }else{
             return 0;
         }
     }
     if(player == 1){
-        if(comuter == 0){
+        if(computer == 0){
             return 0;
         }else{
             return 1;
         }
     }
     if(player == 2){
-        if(comuter == 1){
+        if(computer == 1){
             return 0;
         }else{
             return 1;
         }
     }
-    return 2;
 }
-function play(){
-    let player = getPlayerChoise();
+function play(choise){
+    let player = arr.indexOf(choise);
     let computer = comuterPlay();
-    while(computer == 2){
-        console.log("tie , play agin");
-        computer = comuterPlay();
-    }
     let reslte = calc(player , computer);
-    if(reslte == 1){
-        console.log("You win this round! "+ arr[player] +" beats " + arr[computer]);
+    let st = "";
+    if(reslte == 2){
+        st = "tie , play agin";
+    }else if(reslte == 1){
+        st = "You win this round! "+ arr[player] +" beats " + arr[computer];
     }else{
-        console.log("You lose this round! "+ arr[computer] +  " beats " + arr[player]);
+        st = "You lose this round! "+ arr[computer] +  " beats " + arr[player];
     }
-    return reslte;
+    return [reslte , st];
 }
 function game(){
     console.log("welcome to my game");
     let resPlayer = 0;
     let resComputer = 0;
     for(let i = 0;i<5;i++){
-        let res = play();
+        let res = play()[0];
         if(res == 1){
             resPlayer++;
         }else{
@@ -71,4 +64,3 @@ function game(){
         console.log("YOU LOSE ~_~");
     }
 }
-game();

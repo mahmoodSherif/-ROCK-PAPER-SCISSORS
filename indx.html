@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="sc.js"></script>
+        <link rel="stylesheet" href="style.css">
     </head>
+    <body>
+        <div class="keys">
+            <div class="key" data-key="rock">
+                <h1>ROCK</h1>
+            </div>
+            <div class="key" data-key="paper">
+                <h1>PAPER</h1>
+            </div>
+            <div class="key" data-key="scissors">
+                <h1>SCISSORS</h1>
+            </div>
+        </div>
+        <div class="cont">
+            <div class="key" id="compAns">
+                0
+            </div>
+            <div id="ans" class="key">
+                <h1>ans</h1>
+            </div>
+            <div class="key" id="userAns">
+                0
+            </div>
+        </div>
+        <script src="sc.js"></script>
+        <script src="events.js"></script>
+    </body>
 </html>
